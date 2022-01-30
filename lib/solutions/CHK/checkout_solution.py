@@ -28,6 +28,7 @@ PRICE_TABLE = {
     "Y": 20,  # 10,
     "Z": 21,  # 50,
 }
+# NOTE: Add offers in descending order of number of items
 SPECIAL_OFFERS = {
     "A": [(5, 200), (3, 130)],
     "B": [(2, 45)],
@@ -63,10 +64,13 @@ def checkout(skus):
         if skus_counter[free_item] < 0:
             skus_counter[free_item] = 0
 
+    # Apply group offers
     for group, (group_count, group_price) in GROUP_OFFERS.items():
         group_total_count = sum(
             count for item, count in skus_counter.items() if item in group
         )
+        total += (group_total_count // group_count) * group_price
+        number_of_items_to_remove = group_total_count - group_total_count % group_count
 
     # Compute total using special offers and individual prices
     for item, count in skus_counter.items():
@@ -80,4 +84,5 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
