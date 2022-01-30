@@ -1,4 +1,9 @@
+from collections import Counter
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    return -1
+    for item in skus:
+        if item not in "ABCD":
+            return -1
+
