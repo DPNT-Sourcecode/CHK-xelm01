@@ -57,11 +57,16 @@ def checkout(skus):
     total = 0
     skus_counter = Counter(skus)
 
-    # Apply special offers for multiple items first
+    # Apply special offers for multiple items
     for item, (count, free_item) in SPECIAL_OFFERS_MULTI_ITEMS.items():
         skus_counter[free_item] -= skus_counter[item] // count
         if skus_counter[free_item] < 0:
             skus_counter[free_item] = 0
+
+    for group, (group_count, group_price) in GROUP_OFFERS.items():
+        group_total_count = sum(
+            count for item, count in skus_counter.items() if item in group
+        )
 
     # Compute total using special offers and individual prices
     for item, count in skus_counter.items():
@@ -75,3 +80,4 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
