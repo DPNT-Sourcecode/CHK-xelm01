@@ -15,12 +15,14 @@ def checkout(skus):
     skus_counter = Counter(skus)
     for item, count in skus_counter.items():
         if item in SPECIAL_OFFERS:
+            remainder_count = count
             for special_offer in SPECIAL_OFFERS[item]:
-                total += count // special_offer[0] * special_offer[1]
-                last_special_offer_count = special_offer[0]
-            total += count % last_special_offer_count * PRICE_TABLE[item]
+                total += remainder_count // special_offer[0] * special_offer[1]
+                remainder_count %= special_offer[0]
+            total += remainder_count * PRICE_TABLE[item]
         else:
             total += count * PRICE_TABLE[item]
 
     return total
+
 
