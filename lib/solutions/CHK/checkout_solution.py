@@ -28,7 +28,13 @@ PRICE_TABLE = {
     "Y": 10,
     "Z": 50,
 }
-SPECIAL_OFFERS = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "F": [(3, 20)]}
+SPECIAL_OFFERS = {
+    "A": [(5, 200), (3, 130)],
+    "B": [(2, 45)],
+    "F": [(3, 20)],
+    "H": [(10, 80), (5, 45)],
+    "K": [(2, 150)],
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -58,3 +64,4 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+

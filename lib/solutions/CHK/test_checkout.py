@@ -81,3 +81,28 @@ def test_checkout_r4():
     assert checkout("KKK") == 230
     assert checkout("KKKK") == 300
 
+    assert checkout("NNN") == 120
+    assert checkout("NNNM") == 120
+    assert checkout("NNNMM") == 135
+
+    assert checkout("PPPPP") == 200
+    assert checkout("PPPPPP") == 250
+
+    assert checkout("QQQ") == 80
+    assert checkout("QQQQ") == 110
+    assert checkout("QQQQQQ") == 160
+
+    assert checkout("RRR") == 150
+    assert checkout("RRRQ") == 150
+    assert checkout("RRRQQ") == 180
+
+    assert checkout("UUU") == 120
+    assert checkout("UUUU") == 120
+    assert checkout("UUUUU") == 160
+
+    assert checkout("VV") == 90
+    assert checkout("VVV") == 130
+    assert checkout("VVVV") == 180
+    assert checkout("VVVVV") == 220
+
+
