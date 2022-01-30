@@ -113,3 +113,11 @@ def test_checkout_r4():
     assert checkout("VVVV") == 180
     assert checkout("VVVVV") == 220
 
+
+def test_checkout_r5():
+    assert checkout("STXYZ") == 82
+    assert checkout("STXYZZ") == 90
+    assert checkout("XZZZ") == 62
+    assert checkout("SSSZZZ") == 90
+
+
