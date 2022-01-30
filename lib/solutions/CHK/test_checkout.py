@@ -55,7 +55,8 @@ def test_checkout_r4():
     assert checkout("H") == 10
     assert checkout("I") == 35
     assert checkout("J") == 60
-    assert checkout("K") == 80
+    # assert checkout("K") == 80
+    assert checkout("K") == 70
     assert checkout("L") == 90
     assert checkout("M") == 15
     assert checkout("N") == 40
@@ -63,23 +64,30 @@ def test_checkout_r4():
     assert checkout("P") == 50
     assert checkout("Q") == 30
     assert checkout("R") == 50
-    assert checkout("S") == 30
+    # assert checkout("S") == 30
+    assert checkout("S") == 20
     assert checkout("T") == 20
     assert checkout("U") == 40
     assert checkout("V") == 50
     assert checkout("W") == 20
-    assert checkout("X") == 90
-    assert checkout("Y") == 10
-    assert checkout("Z") == 50
+    # assert checkout("X") == 90
+    assert checkout("X") == 17
+    # assert checkout("Y") == 10
+    assert checkout("Y") == 20
+    # assert checkout("Z") == 50
+    assert checkout("Z") == 21
 
     assert checkout("HHHHH") == 45
     assert checkout("HHHHHH") == 55
     assert checkout("HHHHHHHHHH") == 80
     assert checkout("HHHHHHHHHHHHHHH") == 125
 
-    assert checkout("KK") == 150
-    assert checkout("KKK") == 230
-    assert checkout("KKKK") == 300
+    # assert checkout("KK") == 150
+    # assert checkout("KKK") == 230
+    # assert checkout("KKKK") == 300
+    assert checkout("KK") == 120
+    assert checkout("KKK") == 190
+    assert checkout("KKKK") == 240
 
     assert checkout("NNN") == 120
     assert checkout("NNNM") == 120
@@ -104,3 +112,4 @@ def test_checkout_r4():
     assert checkout("VVV") == 130
     assert checkout("VVVV") == 180
     assert checkout("VVVVV") == 220
+
