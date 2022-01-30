@@ -44,6 +44,7 @@ SPECIAL_OFFERS_MULTI_ITEMS = {
     "N": (3, "M"),
     "R": (3, "Q"),
 }
+GROUP_OFFERS = {"STXYZ": (3, 45)}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -74,8 +75,3 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
-
-
-
-
-

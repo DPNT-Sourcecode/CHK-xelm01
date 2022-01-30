@@ -104,5 +104,3 @@ def test_checkout_r4():
     assert checkout("VVV") == 130
     assert checkout("VVVV") == 180
     assert checkout("VVVVV") == 220
-
-
