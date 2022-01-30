@@ -16,8 +16,10 @@ def test_checkout():
     assert checkout("AA") == 100
     assert checkout("AAA") == 130
     assert checkout("AAAA") == 180
-    assert checkout("AAAAA") == 230
-    assert checkout("AAAAAA") == 260
+    # assert checkout("AAAAA") == 230
+    # assert checkout("AAAAAA") == 260
+    assert checkout("AAAAA") == 200
+    assert checkout("AAAAAA") == 250
     assert checkout("B") == 30
     assert checkout("BB") == 45
     assert checkout("BBB") == 75
@@ -25,7 +27,8 @@ def test_checkout():
     assert checkout("ABCDABCD") == 215
     assert checkout("BABDDCAC") == 215
     assert checkout("AAABB") == 175
-    assert checkout("ABCDCBAABCABBAAA") == 505
+    # assert checkout("ABCDCBAABCABBAAA") == 505
+    assert checkout("ABCDCBAABCABBAAA") == 495
 
 
 def test_checkout_r2():
@@ -33,5 +36,7 @@ def test_checkout_r2():
     assert checkout("EE") == 80
     assert checkout("EEB") == 80
     assert checkout("EEBB") == 110
+    assert checkout("EEEBB") == 110
+
 
 
