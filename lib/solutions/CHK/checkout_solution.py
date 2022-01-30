@@ -1,7 +1,7 @@
 from collections import Counter
 
-PRICE_TABLE = {"A": 50, "B": 30, "C": 20, "D": 15}
-SPECIAL_OFFERS = {"A": (3, 130), "B": (2, 45)}
+PRICE_TABLE = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+SPECIAL_OFFERS = {"A": [(5, 200), (3, 130)], "B": [(2, 45)]}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -15,11 +15,12 @@ def checkout(skus):
     skus_counter = Counter(skus)
     for item, count in skus_counter.items():
         if item in SPECIAL_OFFERS:
-            total += (
-                count // SPECIAL_OFFERS[item][0] * SPECIAL_OFFERS[item][1]
-                + count % SPECIAL_OFFERS[item][0] * PRICE_TABLE[item]
-            )
+            for special_offer in SPECIAL_OFFERS[item]:
+                total += count // special_offer[0] * special_offer[1]
+                last_special_offer_count = special_offer[0]
+            total += count % last_special_offer_count * PRICE_TABLE[item]
         else:
             total += count * PRICE_TABLE[item]
 
     return total
+
