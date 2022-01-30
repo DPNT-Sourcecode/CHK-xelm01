@@ -39,6 +39,11 @@ SPECIAL_OFFERS = {
     "U": [(4, 120)],
     "V": [(3, 130), (2, 90)],
 }
+SPECIAL_OFFERS_MULTI_ITEMS = {
+    "E": (2, "B"),
+    "N": (3, "M"),
+    "R": (3, "Q"),
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -52,9 +57,11 @@ def checkout(skus):
     skus_counter = Counter(skus)
 
     # Special offer for E
-    skus_counter["B"] -= skus_counter["E"] // 2
-    if skus_counter["B"] < 0:
-        skus_counter["B"] = 0
+
+    for item, (count, free_item) in SPECIAL_OFFERS_MULTI_ITEMS.items():
+        skus_counter[free_item] -= skus_counter[item] // count
+        if skus_counter[free_item] < 0:
+            skus_counter[free_item] = 0
 
     # Compute total using special offers and individual prices
     for item, count in skus_counter.items():
@@ -68,5 +75,6 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
 
