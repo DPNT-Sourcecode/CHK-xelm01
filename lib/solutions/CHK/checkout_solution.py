@@ -6,13 +6,20 @@ SPECIAL_OFFERS = {"A": [(5, 200), (3, 130)], "B": [(2, 45)]}
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    # Return -1 if the item is not in the table
     for item in skus:
         if item not in PRICE_TABLE:
             return -1
 
     total = 0
-
     skus_counter = Counter(skus)
+
+    # Special offer for E
+    skus_counter["B"] -= skus_counter["E"] // 2
+    if skus_counter["B"] < 0:
+        skus_counter["B"] = 0
+
+    # Compute total using special offers and individual prices
     for item, count in skus_counter.items():
         if item in SPECIAL_OFFERS:
             remainder_count = count
@@ -24,5 +31,6 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
 
