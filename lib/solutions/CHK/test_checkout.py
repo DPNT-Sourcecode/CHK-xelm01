@@ -27,3 +27,11 @@ def test_checkout():
     assert checkout("AAABB") == 175
     assert checkout("ABCDCBAABCABBAAA") == 505
 
+
+def test_checkout_r2():
+    assert checkout("E") == 40
+    assert checkout("EE") == 80
+    assert checkout("EEB") == 80
+    assert checkout("EEBB") == 110
+
+
