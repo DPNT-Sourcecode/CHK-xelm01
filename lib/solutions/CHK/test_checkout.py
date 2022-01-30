@@ -36,7 +36,6 @@ def test_checkout_r2():
     assert checkout("EE") == 80
     assert checkout("EEB") == 80
     assert checkout("EEBB") == 110
-    assert checkout("EEEBB") == 110
-
-
-
+    assert checkout("EEEBB") == 150
+    assert checkout("EEEEBB") == 160
+    assert checkout("AAAAAAAA") == 330
