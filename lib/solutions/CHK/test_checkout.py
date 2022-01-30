@@ -71,3 +71,13 @@ def test_checkout_r4():
     assert checkout("X") == 90
     assert checkout("Y") == 10
     assert checkout("Z") == 50
+
+    assert checkout("HHHHH") == 45
+    assert checkout("HHHHHH") == 55
+    assert checkout("HHHHHHHHHH") == 80
+    assert checkout("HHHHHHHHHHHHHHH") == 125
+
+    assert checkout("KK") == 150
+    assert checkout("KKK") == 230
+    assert checkout("KKKK") == 300
+
