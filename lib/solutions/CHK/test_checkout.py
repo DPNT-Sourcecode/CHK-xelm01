@@ -119,5 +119,3 @@ def test_checkout_r5():
     assert checkout("STXYZZ") == 90
     assert checkout("XZZZ") == 62
     assert checkout("SSSZZZ") == 90
-
-
