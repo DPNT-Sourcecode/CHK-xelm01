@@ -70,7 +70,18 @@ def checkout(skus):
             count for item, count in skus_counter.items() if item in group
         )
         total += (group_total_count // group_count) * group_price
+
+        # Remove items in desceding order of their individual price
         number_of_items_to_remove = group_total_count - group_total_count % group_count
+        group = sorted(group, key=lambda x: PRICE_TABLE[x], reverse=True)
+        for item in group:
+            old_count = skus_counter[item]
+            skus_counter[item] -= number_of_items_to_remove
+            if skus_counter[item] < 0:
+                skus_counter[item] = 0
+            number_of_items_to_remove -= old_count
+            if number_of_items_to_remove <= 0:
+                break
 
     # Compute total using special offers and individual prices
     for item, count in skus_counter.items():
@@ -84,5 +95,6 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
 
