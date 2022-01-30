@@ -56,8 +56,7 @@ def checkout(skus):
     total = 0
     skus_counter = Counter(skus)
 
-    # Special offer for E
-
+    # Apply special offers for multiple items first
     for item, (count, free_item) in SPECIAL_OFFERS_MULTI_ITEMS.items():
         skus_counter[free_item] -= skus_counter[item] // count
         if skus_counter[free_item] < 0:
@@ -75,6 +74,7 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
 
 
