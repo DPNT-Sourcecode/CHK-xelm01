@@ -1,7 +1,7 @@
 from collections import Counter
 
-PRICE_TABLE = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
-SPECIAL_OFFERS = {"A": [(5, 200), (3, 130)], "B": [(2, 45)]}
+PRICE_TABLE = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
+SPECIAL_OFFERS = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "F": [(3, 20)]}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -31,6 +31,7 @@ def checkout(skus):
             total += count * PRICE_TABLE[item]
 
     return total
+
 
 
 

@@ -39,3 +39,13 @@ def test_checkout_r2():
     assert checkout("EEEBB") == 150
     assert checkout("EEEEBB") == 160
     assert checkout("AAAAAAAA") == 330
+
+
+def test_checkout_r3():
+    assert checkout("F") == 10
+    assert checkout("FF") == 20
+    assert checkout("FFF") == 20
+    assert checkout("FFFF") == 30
+    assert checkout("FFFFF") == 40
+    assert checkout("FFFFFF") == 40
+
